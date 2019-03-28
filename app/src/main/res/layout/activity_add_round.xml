@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddRoundActivity">
+
+    <TextView
+        android:id="@+id/selectedCourseTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/textview"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_AddRoundHoleNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/hole_1"
+        app:layout_constraintBottom_toBottomOf="@+id/selectedCourseTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_HoleScore"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/score"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectedCourseTextView" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout_NumPutts"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_NumPutts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_NumPutts"
+        app:layout_constraintTop_toTopOf="@+id/textView_NumPutts">
+
+        <ToggleButton
+            android:id="@+id/toggleButton_numPutts1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/toggleButtonMinWidth"
+            android:text=""
+            android:textOff="@string/_1"
+            android:textOn="@string/_1" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton_numPutts2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/toggleButtonMinWidth"
+            android:text=""
+            android:textOff="@string/_2"
+            android:textOn="@string/_2"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButton_numPutts3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/toggleButtonMinWidth"
+            android:text=""
+            android:textOff="@string/_3"
+            android:textOn="@string/_3"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButton_numPutts4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/toggleButtonMinWidth"
+            android:text=""
+            android:textOff="@string/_4"
+            android:textOn="@string/_4" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView_NumPutts"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/putts"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_HoleScore" />
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView_HoleScore"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_HoleScore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_HoleScore"
+        app:layout_constraintTop_toTopOf="@+id/textView_HoleScore"
+        app:layout_constraintVertical_bias="0.119">
+
+        <LinearLayout
+            android:id="@+id/linearLayout_HoleScore"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/toggleButton_HoleScore1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/toggleButtonMinWidth"
+                android:text=""
+                android:textOff="@string/_1"
+                android:textOn="@string/_1" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton_HoleScore2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/toggleButtonMinWidth"
+                android:text=""
+                android:textOff="@string/_2"
+                android:textOn="@string/_2"
+                tools:layout_editor_absoluteX="135dp"
+                tools:layout_editor_absoluteY="89dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton_HoleScore3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/toggleButtonMinWidth"
+                android:text=""
+                android:textOff="@string/_3"
+                android:textOn="@string/_3"
+                tools:layout_editor_absoluteX="135dp"
+                tools:layout_editor_absoluteY="89dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton_HoleScore4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/toggleButtonMinWidth"
+                android:text=""
+                android:textOff="@string/_4"
+                android:textOn="@string/_4"
+                tools:layout_editor_absoluteX="135dp"
+                tools:layout_editor_absoluteY="89dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton_HoleScore5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/toggleButtonMinWidth"
+                android:text=""
+                android:textOff="@string/_5"
+                android:textOn="@string/_5"
+                tools:layout_editor_absoluteX="135dp"
+                tools:layout_editor_absoluteY="89dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton_HoleScore6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/toggleButtonMinWidth"
+                android:text=""
+                android:textOff="@string/_6"
+                android:textOn="@string/_6"
+                tools:layout_editor_absoluteX="135dp"
+                tools:layout_editor_absoluteY="89dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton_HoleScore7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/toggleButtonMinWidth"
+                android:text=""
+                android:textOff="@string/_7"
+                android:textOn="@string/_7"
+                tools:layout_editor_absoluteX="135dp"
+                tools:layout_editor_absoluteY="89dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton_HoleScore8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/toggleButtonMinWidth"
+                android:text=""
+                android:textOff="@string/_8"
+                android:textOn="@string/_8"
+                tools:layout_editor_absoluteX="135dp"
+                tools:layout_editor_absoluteY="89dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton_HoleScore9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/toggleButtonMinWidth"
+                android:text=""
+                android:textOff="@string/_9"
+                android:textOn="@string/_9"
+                tools:layout_editor_absoluteX="135dp"
+                tools:layout_editor_absoluteY="89dp" />
+
+            <ToggleButton
+                android:id="@+id/toggleButton_HoleScore10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/toggleButtonMinWidth"
+                android:text=""
+                android:textOff="@string/_10"
+                android:textOn="@string/_10"
+                tools:layout_editor_absoluteX="135dp"
+                tools:layout_editor_absoluteY="89dp" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/fairway"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_NumPutts" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFW"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView3">
+
+        <ToggleButton
+            android:id="@+id/toggleButton_FW_Hit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/toggleButtonMinWidth"
+            android:text=""
+            android:textOff="@string/yes"
+            android:textOn="@string/yes" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton_FW_MissLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/toggleButtonMinWidth"
+            android:text=""
+            android:textOff="@string/miss_left"
+            android:textOn="@string/miss_left" />
+
+        <ToggleButton
+            android:id="@+id/toggleButton_FW_MissRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/toggleButtonMinWidth"
+            android:text=""
+            android:textOff="@string/miss_right"
+            android:textOn="@string/miss_right" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView_Chip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/chip"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton_Chip"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/togglebutton"
+        android:textOff="@string/no"
+        android:textOn="@string/yes"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_Chip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/linearLayoutFW"
+        app:layout_constraintTop_toTopOf="@+id/textView_Chip" />
+
+    <TextView
+        android:id="@+id/textView_Penalty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/penalty"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Chip" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton_Penalty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/togglebutton"
+        android:textOff="@string/no"
+        android:textOn="@string/yes"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_Penalty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/toggleButton_Chip"
+        app:layout_constraintTop_toTopOf="@+id/textView_Penalty" />
+
+    <Button
+        android:id="@+id/button_NextHole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/next_hole"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

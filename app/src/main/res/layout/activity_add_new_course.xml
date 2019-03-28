@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstrainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNewCourseActivity"
+    tools:layout_editor_absoluteX="10dp"
+    tools:layout_editor_absoluteY="200dp">
+
+
+    <TextView
+        android:id="@+id/textView_courseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/course_name"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_courseName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/edit"
+        android:importantForAutofill="no"
+        android:inputType="textFilter"
+        android:text=""
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView_courseName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView_courseName"
+        tools:targetApi="o" />
+
+
+    <TextView
+        android:id="@+id/textView_coursePar"
+        android:layout_width="99dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/course_par"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView_parCheck" />
+
+    <TextView
+        android:id="@+id/textView_parCheck"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/check_par"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editText_courseName"
+        app:layout_constraintTop_toBottomOf="@+id/btnNextHole" />
+
+
+    <TextView
+        android:id="@+id/textView_holeNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/placeholder"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/numberPicker_h1"
+        app:layout_constraintStart_toStartOf="@+id/editText_courseName"
+        app:layout_constraintTop_toTopOf="@+id/numberPicker_h1" />
+
+    <NumberPicker
+        android:id="@+id/numberPicker_h1"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_courseName" />
+
+
+    <Button
+        android:id="@+id/btnAddNewCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/add_new_course"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_coursePar" />
+
+    <Button
+        android:id="@+id/btnNextHole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/next"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberPicker_h1" />
+
+    <TextView
+        android:id="@+id/textView_holePar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:hint="@string/par"
+        android:text=""
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnNextHole"
+        app:layout_constraintStart_toStartOf="@+id/textView_parCheck"
+        app:layout_constraintTop_toTopOf="@+id/btnNextHole" />
+
+
+</android.support.constraint.ConstraintLayout>
