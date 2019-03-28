@@ -70,12 +70,12 @@
         android:layout_marginTop="16dp"
         android:text="@string/placeholder"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/numberPicker_h1"
+        app:layout_constraintBottom_toBottomOf="@+id/numberPicker_score"
         app:layout_constraintStart_toStartOf="@+id/editText_courseName"
-        app:layout_constraintTop_toTopOf="@+id/numberPicker_h1" />
+        app:layout_constraintTop_toTopOf="@+id/numberPicker_score" />
 
     <NumberPicker
-        android:id="@+id/numberPicker_h1"
+        android:id="@+id/numberPicker_score"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginTop="8dp"
@@ -102,7 +102,7 @@
         android:layout_marginEnd="16dp"
         android:text="@string/next"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberPicker_h1" />
+        app:layout_constraintTop_toBottomOf="@+id/numberPicker_score" />
 
     <TextView
         android:id="@+id/textView_holePar"

@@ -41,7 +41,7 @@ public class AddNewCourseActivity extends AppCompatActivity {
         insertedHoles = (TextView)findViewById(R.id.textView_holePar);
 
         //NumberPicker
-        noPicker = (NumberPicker) findViewById(R.id.numberPicker_h1);
+        noPicker = (NumberPicker) findViewById(R.id.numberPicker_score);
         noPicker.setMinValue(3);
         noPicker.setMaxValue(6);
         noPicker.setValue(4);
