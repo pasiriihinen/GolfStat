@@ -58,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    //Post score for one hole
+    //Post score, putts, fw, chip and penalty info for one hole
     public boolean postHoleData(Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -75,4 +75,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor result = db.rawQuery("select * from "+TABLE_NAME, null);
         return result;
     }
+
+
+
+
 }

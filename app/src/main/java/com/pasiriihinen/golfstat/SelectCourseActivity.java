@@ -31,6 +31,7 @@ public class SelectCourseActivity extends AppCompatActivity {
                 Cursor cursor = (Cursor)parent.getAdapter().getItem(i);
                 intent.putExtra("CourseName", cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_NAME)));
                 intent.putExtra("CourseId", cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_ID)));
+                intent.putExtra("Par", cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_PAR)));
                 startActivity(intent);
             }
         });
