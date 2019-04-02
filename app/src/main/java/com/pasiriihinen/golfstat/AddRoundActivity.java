@@ -5,17 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class AddRoundActivity extends AppCompatActivity {
     //Add variables
     DatabaseHelper myDb;
-    TextView TextViewSelectCourse;
-    TextView TextViewHoleNumber;
-    TextView TextViewHolePar;
-    Button button_NextHole;
-    String str_CourseId, str_Par;
-    Character char_CurrentHolePar;
+    TextView TextViewSelectedCourse, TextViewSelectedCourseIdDigit, TextViewCurrentHole,
+            TextViewCurrentHoleDigit, TextViewCurrentHolePar, TextViewCurrentHoleParDigit;
+    Button button_Next;
+    Integer courseIdDigit, holeNumberDigit, holeParDigit;
+    char[] holeParArray;
+    String tempString;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,43 +25,56 @@ public class AddRoundActivity extends AppCompatActivity {
         //DatabaseHelper
         myDb = new DatabaseHelper(this);
 
-        //Assign the variables via findViewById
-        button_NextHole = (Button)findViewById(R.id.button_NextHole);
-        //Set HoleNumber
-        TextViewHoleNumber = (TextView) findViewById(R.id.textView_holeNumber);
+        //
+        TextViewSelectedCourse = findViewById(R.id.TextView_selectedCourse);
+        TextViewSelectedCourseIdDigit = findViewById(R.id.textView_selectedCourseIdDigit);
 
-
-        TextViewSelectCourse = (TextView) findViewById(R.id.selectedCourseTextView);
+        //Receive and assign intent bundle content from selectCourseActivity for initial setup
         Bundle bundle = getIntent().getExtras();
-        if(bundle != null) {
-            TextViewSelectCourse.setText(bundle.getString("CourseName") + "(" + bundle.getString("CourseId") + ")");
+        if (bundle != null) {
+            TextViewSelectedCourse.setText(bundle.getString("CourseName"));
+            TextViewSelectedCourseIdDigit.setText(bundle.getString("CourseId"));
+            tempString = (bundle.getString("Par"));
         }
 
-        str_CourseId = (bundle.getString("CourseId"));
-        str_Par = (bundle.getString("PAR"));
-        char_CurrentHolePar = str_Par.charAt(0);
+        //Setup textViews
+        holeParArray = tempString.toCharArray();
 
-        TextViewHolePar.setText(char_CurrentHolePar);
+        courseIdDigit = Integer.valueOf(TextViewSelectedCourseIdDigit.getText().toString());
+        TextViewCurrentHole = findViewById(R.id.textView_AddRoundHoleNumber);
+        TextViewCurrentHoleDigit = findViewById(R.id.textView_AddRoundHoleNumberDigit);
+        holeNumberDigit = 1;
+        TextViewCurrentHoleDigit.setText(holeNumberDigit.toString());
+        TextViewCurrentHolePar = findViewById(R.id.textView_AddRoundHolePar);
+        TextViewCurrentHoleParDigit = findViewById(R.id.textView_AddRoundHoleParDigit);
+        holeParDigit = Integer.valueOf(holeParArray[0]);
+        TextViewCurrentHoleParDigit.setText(holeParDigit);
 
+        //Button setup
+        button_Next = findViewById(R.id.button_NextHole);
 
 
         PostHoleData();
 
     }
 
+
+    //Update GUI after clicking next button
+
+
     //Method to post hole data to database
     public void PostHoleData() {
-        button_NextHole.setOnClickListener(
+        button_Next.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean postedHoleData = myDb.postHoleData(3);
+                   /*     boolean postedHoleData = myDb.postHoleData(3);
                     if (postedHoleData == true) {
                         Toast.makeText(AddRoundActivity.this, "Data posted To DB", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         Toast.makeText(AddRoundActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                    }
+                    } */
                     }
                 }
         );
