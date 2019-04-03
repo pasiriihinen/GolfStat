@@ -37,8 +37,8 @@
     <string name="miss_left">Miss L</string>
     <string name="miss_right">Miss R</string>
     <string name="x">X</string>
-    <string name="holej">Hole:</string>
-    <string name="x1">X</string>
-    <string name="parj">Par:</string>
-    <string name="x2">X</string>
+    <string name="holeIdText">Hole:</string>
+    <string name="holex">X</string>
+    <string name="holepar">HolePar</string>
+    <string name="parX">X</string>
 </resources>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AddRoundActivity extends AppCompatActivity {
     //Add variables
@@ -38,17 +39,19 @@ public class AddRoundActivity extends AppCompatActivity {
         }
 
         //Setup textViews
-        holeParArray = tempString.toCharArray();
+       // holeParArray = tempString.toCharArray();
 
         courseIdDigit = Integer.valueOf(TextViewSelectedCourseIdDigit.getText().toString());
         TextViewCurrentHole = findViewById(R.id.textView_AddRoundHoleNumber);
         TextViewCurrentHoleDigit = findViewById(R.id.textView_AddRoundHoleNumberDigit);
         holeNumberDigit = 1;
-        TextViewCurrentHoleDigit.setText(holeNumberDigit.toString());
+        //TextViewCurrentHoleDigit.setText(holeNumberDigit.toString());
+        TextViewCurrentHoleDigit.setText(String.valueOf(holeNumberDigit));
         TextViewCurrentHolePar = findViewById(R.id.textView_AddRoundHolePar);
         TextViewCurrentHoleParDigit = findViewById(R.id.textView_AddRoundHoleParDigit);
-        holeParDigit = Integer.valueOf(holeParArray[0]);
-        TextViewCurrentHoleParDigit.setText(holeParDigit);
+    //    holeParDigit = Integer.valueOf(holeParArray[0]);
+    //    TextViewCurrentHoleParDigit.setText(holeParDigit);
+        TextViewCurrentHoleParDigit.setText(String.valueOf(tempString.charAt(0)));
 
         //Button setup
         button_Next = findViewById(R.id.button_NextHole);
@@ -64,19 +67,18 @@ public class AddRoundActivity extends AppCompatActivity {
 
     //Method to post hole data to database
     public void PostHoleData() {
-        button_Next.setOnClickListener(
+     //   button_Next.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                   /*     boolean postedHoleData = myDb.postHoleData(3);
+                        boolean postedHoleData = myDb.postHoleData(3);
                     if (postedHoleData == true) {
                         Toast.makeText(AddRoundActivity.this, "Data posted To DB", Toast.LENGTH_SHORT).show();
                     }
                     else {
                         Toast.makeText(AddRoundActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                    } */
                     }
-                }
-        );
-    }
+                    }
+                };
+            }
 }

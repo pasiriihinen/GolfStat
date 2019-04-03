@@ -34,9 +34,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="0dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/holej"
+        android:text="@string/holeIdText"
         app:layout_constraintBottom_toBottomOf="@+id/TextView_selectedCourse"
         app:layout_constraintEnd_toStartOf="@+id/textView_AddRoundHoleNumberDigit"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +47,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/x1"
+        android:text="@string/holex"
         app:layout_constraintBottom_toBottomOf="@+id/TextView_selectedCourse"
         app:layout_constraintEnd_toStartOf="@+id/textView_AddRoundHolePar"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,9 +57,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="0dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/parj"
+        android:text="@string/holepar"
         app:layout_constraintBottom_toBottomOf="@+id/TextView_selectedCourse"
         app:layout_constraintEnd_toStartOf="@+id/textView_AddRoundHoleParDigit"
         app:layout_constraintTop_toTopOf="parent" />
@@ -72,7 +70,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/x2"
+        android:text="@string/parX"
         app:layout_constraintBottom_toBottomOf="@+id/TextView_selectedCourse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
