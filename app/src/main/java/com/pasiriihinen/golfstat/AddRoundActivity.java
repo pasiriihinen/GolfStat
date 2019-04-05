@@ -4,8 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.util.Calendar;
 
 public class AddRoundActivity extends AppCompatActivity {
     //Add variables
@@ -13,9 +18,11 @@ public class AddRoundActivity extends AppCompatActivity {
     TextView TextViewSelectedCourse, TextViewSelectedCourseIdDigit, TextViewCurrentHole,
             TextViewCurrentHoleDigit, TextViewCurrentHolePar, TextViewCurrentHoleParDigit;
     Button button_Next;
-    Integer courseIdDigit, holeNumberDigit, holeParDigit;
+    Integer courseIdDigit, holeNumberDigit, holeParDigit, holePuttsDigit;
     char[] holeParArray;
-    String tempString;
+    String tempString, dateString;
+    RadioGroup radioGroupHoleScore, radioGroupHolePutts;
+    RadioButton radioButtonHoleScore, radioButtonHolePutts;
 
 
     @Override
@@ -25,6 +32,10 @@ public class AddRoundActivity extends AppCompatActivity {
 
         //DatabaseHelper
         myDb = new DatabaseHelper(this);
+
+        //Get the current date
+        Calendar calendar = Calendar.getInstance();
+        dateString = DateFormat.getDateInstance(DateFormat.DATE_FIELD).format(calendar.getTime());
 
         //
         TextViewSelectedCourse = findViewById(R.id.TextView_selectedCourse);
@@ -53,6 +64,10 @@ public class AddRoundActivity extends AppCompatActivity {
     //    TextViewCurrentHoleParDigit.setText(holeParDigit);
         TextViewCurrentHoleParDigit.setText(String.valueOf(tempString.charAt(0)));
 
+        //Setup radiogroups
+        radioGroupHoleScore = findViewById(R.id.radioGroupScore);
+        radioGroupHolePutts = findViewById(R.id.radioGroupPutts);
+
         //Button setup
         button_Next = findViewById(R.id.button_NextHole);
 
@@ -64,21 +79,44 @@ public class AddRoundActivity extends AppCompatActivity {
 
     //Update GUI after clicking next button
 
-
     //Method to post hole data to database
     public void PostHoleData() {
      //   button_Next.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean postedHoleData = myDb.postHoleData(3);
-                    if (postedHoleData == true) {
+                        //boolean postedHoleData = myDb.postHoleData(3);
+
+
+                    /*if (postedHoleData == true) {
                         Toast.makeText(AddRoundActivity.this, "Data posted To DB", Toast.LENGTH_SHORT).show();
                     }
-                    else {
-                        Toast.makeText(AddRoundActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                    }
+                        else {
+                            Toast.makeText(AddRoundActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                        } */
                     }
                 };
             }
+
+    //Method to store hole score from radio group to variable
+    public void checkHoleScore(View v) {
+        int radioScoreId = radioGroupHoleScore.getCheckedRadioButtonId();
+
+        radioButtonHoleScore = findViewById(radioScoreId);
+        String tempScore = String.valueOf(radioButtonHoleScore.getText());
+        holeParDigit = Integer.valueOf(tempScore);
+        Toast.makeText(this, "Hole score is: " + radioButtonHoleScore.getText(),
+                Toast.LENGTH_SHORT).show();
+    }
+
+    //Method to store hole putts from radio group to variable
+    public void checkHolePutts(View v) {
+        int radioPuttsId = radioGroupHolePutts.getCheckedRadioButtonId();
+
+        radioButtonHolePutts = findViewById(radioPuttsId);
+        String tempPutts = String.valueOf(radioButtonHolePutts.getText());
+        holePuttsDigit = Integer.valueOf(tempPutts);
+        Toast.makeText(this, "Number of putts is: " + radioButtonHolePutts.getText(),
+                Toast.LENGTH_SHORT).show();
+    }
 }

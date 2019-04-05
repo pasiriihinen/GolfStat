@@ -104,120 +104,93 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <ToggleButton
-                android:id="@+id/toggleButton_HoleScore1"
+            <RadioGroup
+                android:id="@+id/radioGroupScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="@dimen/toggleButtonMinWidth"
-                android:text=""
-                android:textOff="@string/_1"
-                android:textOn="@string/_1" />
+                android:orientation="horizontal">
 
-            <ToggleButton
-                android:id="@+id/toggleButton_HoleScore2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="@dimen/toggleButtonMinWidth"
-                android:text=""
-                android:textOff="@string/_2"
-                android:textOn="@string/_2"
-                tools:layout_editor_absoluteX="135dp"
-                tools:layout_editor_absoluteY="89dp" />
+                <RadioButton
+                    android:id="@+id/radiobutton_score1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="20sp"
+                    android:onClick="checkHoleScore"/>
 
-            <ToggleButton
-                android:id="@+id/toggleButton_HoleScore3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="@dimen/toggleButtonMinWidth"
-                android:text=""
-                android:textOff="@string/_3"
-                android:textOn="@string/_3"
-                tools:layout_editor_absoluteX="135dp"
-                tools:layout_editor_absoluteY="89dp" />
+                <RadioButton
+                    android:id="@+id/radiobutton_score2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textSize="20sp"
+                    android:onClick="checkHoleScore"/>
 
-            <ToggleButton
-                android:id="@+id/toggleButton_HoleScore4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="@dimen/toggleButtonMinWidth"
-                android:text=""
-                android:textOff="@string/_4"
-                android:textOn="@string/_4"
-                tools:layout_editor_absoluteX="135dp"
-                tools:layout_editor_absoluteY="89dp" />
+                <RadioButton
+                    android:id="@+id/radiobutton_score3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textSize="20sp"
+                    android:onClick="checkHoleScore"/>
 
-            <ToggleButton
-                android:id="@+id/toggleButton_HoleScore5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="@dimen/toggleButtonMinWidth"
-                android:text=""
-                android:textOff="@string/_5"
-                android:textOn="@string/_5"
-                tools:layout_editor_absoluteX="135dp"
-                tools:layout_editor_absoluteY="89dp" />
+                <RadioButton
+                    android:id="@+id/radiobutton_score4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    android:textSize="20sp"
+                    android:onClick="checkHoleScore"/>
 
-            <ToggleButton
-                android:id="@+id/toggleButton_HoleScore6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="@dimen/toggleButtonMinWidth"
-                android:text=""
-                android:textOff="@string/_6"
-                android:textOn="@string/_6"
-                tools:layout_editor_absoluteX="135dp"
-                tools:layout_editor_absoluteY="89dp" />
+                <RadioButton
+                    android:id="@+id/radiobutton_score5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:textSize="20sp"
+                    android:onClick="checkHoleScore"/>
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/_1" />
+                <RadioButton
+                    android:id="@+id/radiobutton_score6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="6"
+                    android:textSize="20sp"
+                    android:onClick="checkHoleScore"/>
 
-            <ToggleButton
-                android:id="@+id/toggleButton_HoleScore7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="@dimen/toggleButtonMinWidth"
-                android:text=""
-                android:textOff="@string/_7"
-                android:textOn="@string/_7"
-                tools:layout_editor_absoluteX="135dp"
-                tools:layout_editor_absoluteY="89dp" />
+                <RadioButton
+                    android:id="@+id/radiobutton_score7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7"
+                    android:textSize="20sp"
+                    android:onClick="checkHoleScore"/>
 
-            <ToggleButton
-                android:id="@+id/toggleButton_HoleScore8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="@dimen/toggleButtonMinWidth"
-                android:text=""
-                android:textOff="@string/_8"
-                android:textOn="@string/_8"
-                tools:layout_editor_absoluteX="135dp"
-                tools:layout_editor_absoluteY="89dp" />
+                <RadioButton
+                    android:id="@+id/radiobutton_score8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8"
+                    android:textSize="20sp"
+                    android:onClick="checkHoleScore"/>
 
-            <ToggleButton
-                android:id="@+id/toggleButton_HoleScore9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="@dimen/toggleButtonMinWidth"
-                android:text=""
-                android:textOff="@string/_9"
-                android:textOn="@string/_9"
-                tools:layout_editor_absoluteX="135dp"
-                tools:layout_editor_absoluteY="89dp" />
+                <RadioButton
+                    android:id="@+id/radiobutton_score9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9"
+                    android:textSize="20sp"
+                    android:onClick="checkHoleScore"/>
 
-            <ToggleButton
-                android:id="@+id/toggleButton_HoleScore10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minWidth="@dimen/toggleButtonMinWidth"
-                android:text=""
-                android:textOff="@string/_10"
-                android:textOn="@string/_10"
-                tools:layout_editor_absoluteX="135dp"
-                tools:layout_editor_absoluteY="89dp" />
+                <RadioButton
+                    android:id="@+id/radiobutton_score10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10"
+                    android:textSize="20sp"
+                    android:onClick="checkHoleScore"/>
+
+            </RadioGroup>
 
 
         </LinearLayout>
@@ -235,41 +208,53 @@
         app:layout_constraintStart_toEndOf="@+id/textView_NumPutts"
         app:layout_constraintTop_toTopOf="@+id/textView_NumPutts">
 
-        <ToggleButton
-            android:id="@+id/toggleButton_numPutts1"
+        <RadioGroup
+            android:id="@+id/radioGroupPutts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="@dimen/toggleButtonMinWidth"
-            android:text=""
-            android:textOff="@string/_1"
-            android:textOn="@string/_1" />
+            android:orientation="horizontal">
 
-        <ToggleButton
-            android:id="@+id/toggleButton_numPutts2"
+        <RadioButton
+            android:id="@+id/radiobutton_putts0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="@dimen/toggleButtonMinWidth"
-            android:text=""
-            android:textOff="@string/_2"
-            android:textOn="@string/_2"/>
+            android:text="0"
+            android:textSize="20sp"
+            android:onClick="checkHolePutts"/>
 
-        <ToggleButton
-            android:id="@+id/toggleButton_numPutts3"
+        <RadioButton
+            android:id="@+id/radiobutton_putts1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="@dimen/toggleButtonMinWidth"
-            android:text=""
-            android:textOff="@string/_3"
-            android:textOn="@string/_3"/>
+            android:text="1"
+            android:textSize="20sp"
+            android:onClick="checkHolePutts"/>
 
-        <ToggleButton
-            android:id="@+id/toggleButton_numPutts4"
+        <RadioButton
+            android:id="@+id/radiobutton_putts2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="@dimen/toggleButtonMinWidth"
-            android:text=""
-            android:textOff="@string/_4"
-            android:textOn="@string/_4" />
+            android:text="2"
+            android:textSize="20sp"
+            android:onClick="checkHolePutts"/>
+
+        <RadioButton
+            android:id="@+id/radiobutton_putts3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3"
+            android:textSize="20sp"
+            android:onClick="checkHolePutts"/>
+
+        <RadioButton
+            android:id="@+id/radiobutton_putts4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4"
+            android:textSize="20sp"
+            android:onClick="checkHolePutts"/>
+
+        </RadioGroup>
 
     </LinearLayout>
 
