@@ -23,7 +23,7 @@ public class AddRoundActivity extends AppCompatActivity {
     Button button_Next;
     Integer roundId, holeNumberDigit, holeParDigit, holePuttsDigit, currentHoleParHelper;
     //char[] holeParArray;
-    String tempString, dateString, courseIdDigit, holeScore;
+    String roundIdString, tempString, dateString, courseIdDigit, holeScore;
     RadioGroup radioGroupHoleScore, radioGroupHolePutts;
     RadioButton radioButtonHoleScore, radioButtonHolePutts;
 
@@ -83,9 +83,11 @@ public class AddRoundActivity extends AppCompatActivity {
     }
 
     private void getLastRoundId() {
-             roundId = Integer.valueOf("SELECT " + ROUND_ID + " FROM " + ROUNDS_TABLE + " ORDER BY _id DESC LIMIT 1");
-             roundId += 1;
-
+        //roundId = Integer.valueOf("SELECT " + ROUND_ID + " FROM " + ROUNDS_TABLE + " ORDER BY _id DESC LIMIT 1");
+       // roundId = Integer.valueOf("SELECT MAX(id) FROM ROUNDS_TABLE");
+        myDb.execSQL("SELECT MAX(id) FROM ROUNDS_TABLE");
+        //roundId += 1;
+        roundIdString = String.valueOf(roundId);
     }
 
 
@@ -98,7 +100,7 @@ public class AddRoundActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         //boolean postedHoleData = myDb.postHoleData(3);
-                        boolean postedHoleData = myDb.postHoleData(roundId, dateString, courseIdDigit, String.valueOf(holeNumberDigit), String.valueOf(tempString.charAt(currentHoleParHelper)), String.valueOf(holeParDigit));
+                        boolean postedHoleData = myDb.postHoleData(roundIdString, dateString, courseIdDigit, String.valueOf(holeNumberDigit), String.valueOf(tempString.charAt(currentHoleParHelper)), String.valueOf(holeParDigit));
 
                     if (postedHoleData == true) {
                         Toast.makeText(AddRoundActivity.this, "Data posted To DB", Toast.LENGTH_SHORT).show();

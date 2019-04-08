@@ -15,7 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_PAR = "PAR";
     //Rounds table
     public static final String ROUNDS_TABLE = "rounds_table";
-    public static final Integer ROUND_ID = 1;
+    public static final String ROUND_ID = "id";
     public static final String ROUND_DATE = "DATE";
     public static final String ROUND_COURSE = "COURSE";
     public static final String ROUND_HOLENUM = "HOLE_NUM";
@@ -36,7 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, PAR INTEGER)");
         //Create rounds table
-        db.execSQL("create table " + ROUNDS_TABLE + "(id INTEGER PRIMARY KEY, DATE TEXT, COURSE TEXT, HOLENUM INTEGER, HOLEPAR INTEGER, HOLESCORE INTEGER, HOLEPUTTS INTEGER, HOLEFW TEXT, HOLECHIP TEXT, HOLEPENALTY TEXT)");
+        db.execSQL("create table " + ROUNDS_TABLE + "(id INTEGER, DATE TEXT, COURSE TEXT, HOLENUM INTEGER, HOLEPAR INTEGER, HOLESCORE INTEGER, HOLEPUTTS INTEGER, HOLEFW TEXT, HOLECHIP TEXT, HOLEPENALTY TEXT)");
 
     }
 
@@ -59,7 +59,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Post score, putts, fw, chip and penalty info for one hole
-    public boolean postHoleData(Integer id, String DATE, String COURSE, String HOLE_NUM, String HOLE_PAR, String HOLE_SCORE) {
+    public boolean postHoleData(String id, String DATE, String COURSE, String HOLE_NUM, String HOLE_PAR, String HOLE_SCORE) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(ROUND_ID, id);
