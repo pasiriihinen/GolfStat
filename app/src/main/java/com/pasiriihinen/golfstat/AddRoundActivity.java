@@ -21,9 +21,9 @@ public class AddRoundActivity extends AppCompatActivity {
     TextView TextViewSelectedCourse, TextViewSelectedCourseIdDigit, TextViewCurrentHole,
             TextViewCurrentHoleDigit, TextViewCurrentHolePar, TextViewCurrentHoleParDigit;
     Button button_Next;
-    Integer roundId, holeNumberDigit, holeParDigit, holePuttsDigit, currentHoleParHelper;
+    Integer roundId, holeNumberInteger, holePuttsDigit, currentHoleParHelper;
     //char[] holeParArray;
-    String tempString, dateString, courseIdDigit, holeScore;
+    String roundIdString, tempString, dateString, holeNumberString, courseIdString, holeScoreString, holeParString, currentHolePar, holePuttsString;
     RadioGroup radioGroupHoleScore, radioGroupHolePutts;
     RadioButton radioButtonHoleScore, radioButtonHolePutts;
 
@@ -53,19 +53,20 @@ public class AddRoundActivity extends AppCompatActivity {
         }
 
         //Setup textViews
-        courseIdDigit = TextViewSelectedCourseIdDigit.getText().toString();
+        courseIdString = TextViewSelectedCourseIdDigit.getText().toString();
         TextViewCurrentHole = findViewById(R.id.textView_AddRoundHoleNumber);
         TextViewCurrentHoleDigit = findViewById(R.id.textView_AddRoundHoleNumberDigit);
-        holeNumberDigit = 1;
+        holeNumberInteger = 1;
+        holeNumberString = String.valueOf(holeNumberInteger);
         //TextViewCurrentHoleDigit.setText(holeNumberDigit.toString());
-        TextViewCurrentHoleDigit.setText(String.valueOf(holeNumberDigit));
+        TextViewCurrentHoleDigit.setText(String.valueOf(holeNumberInteger));
         TextViewCurrentHolePar = findViewById(R.id.textView_AddRoundHolePar);
         TextViewCurrentHoleParDigit = findViewById(R.id.textView_AddRoundHoleParDigit);
     //    holeParDigit = Integer.valueOf(holeParArray[0]);
-    //    TextViewCurrentHoleParDigit.setText(holeParDigit);
+    //  The line below needs br to an INTEGER eventually
         currentHoleParHelper = 0;
         TextViewCurrentHoleParDigit.setText(String.valueOf(tempString.charAt(currentHoleParHelper)));
-
+        currentHolePar = TextViewCurrentHoleParDigit.getText().toString();
 
         //Setup radiogroups
         radioGroupHoleScore = findViewById(R.id.radioGroupScore);
@@ -75,18 +76,14 @@ public class AddRoundActivity extends AppCompatActivity {
         button_Next = findViewById(R.id.button_NextHole);
 
         //Get last round id
-        roundId = 0;
-        getLastRoundId();
+        roundId = 2;
+        roundIdString = String.valueOf(roundId);
+        holeParString = "olle";
 
         PostHoleData();
 
     }
 
-    private void getLastRoundId() {
-             roundId = Integer.valueOf("SELECT " + ROUND_ID + " FROM " + ROUNDS_TABLE + " ORDER BY _id DESC LIMIT 1");
-             roundId += 1;
-
-    }
 
 
     //Update GUI after clicking next button
@@ -97,9 +94,9 @@ public class AddRoundActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //boolean postedHoleData = myDb.postHoleData(3);
-                        boolean postedHoleData = myDb.postHoleData(roundId, dateString, courseIdDigit, String.valueOf(holeNumberDigit), String.valueOf(tempString.charAt(currentHoleParHelper)), String.valueOf(holeParDigit));
-
+                        boolean postedHoleData = myDb.postHoleData(dateString, courseIdString, holeNumberString, currentHolePar, holeScoreString, holePuttsString);
+                        //boolean postedHoleData = myDb.postHoleData(roundIdString, dateString, courseIdString, holeNumberString, String.valueOf(tempString.charAt(currentHoleParHelper)), holeScoreString);
+                        //boolean postedHoleData = myDb.postHoleData(roundIdString, dateString, courseIdString, holeNumberString, holeParString, holeScoreString);
                     if (postedHoleData == true) {
                         Toast.makeText(AddRoundActivity.this, "Data posted To DB", Toast.LENGTH_SHORT).show();
                     }
@@ -115,8 +112,9 @@ public class AddRoundActivity extends AppCompatActivity {
         int radioScoreId = radioGroupHoleScore.getCheckedRadioButtonId();
 
         radioButtonHoleScore = findViewById(radioScoreId);
-        String tempScore = String.valueOf(radioButtonHoleScore.getText());
-        holeParDigit = Integer.valueOf(tempScore);
+        //String tempScore = String.valueOf(radioButtonHoleScore.getText());
+        //holeScoreString = tempScore;
+        holeScoreString = String.valueOf(radioButtonHoleScore.getText());
         Toast.makeText(this, "Hole score is: " + radioButtonHoleScore.getText(),
                 Toast.LENGTH_SHORT).show();
     }
@@ -126,8 +124,7 @@ public class AddRoundActivity extends AppCompatActivity {
         int radioPuttsId = radioGroupHolePutts.getCheckedRadioButtonId();
 
         radioButtonHolePutts = findViewById(radioPuttsId);
-        String tempPutts = String.valueOf(radioButtonHolePutts.getText());
-        holePuttsDigit = Integer.valueOf(tempPutts);
+        holePuttsString = String.valueOf(radioButtonHolePutts.getText());
         Toast.makeText(this, "Number of putts is: " + radioButtonHolePutts.getText(),
                 Toast.LENGTH_SHORT).show();
     }
