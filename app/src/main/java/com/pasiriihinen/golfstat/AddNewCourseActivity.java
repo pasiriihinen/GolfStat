@@ -109,8 +109,6 @@ public class AddNewCourseActivity extends AppCompatActivity {
     }
 
     private void sumCoursePar() {
-
-        //Toast.makeText(AddNewCourseActivity.this,"TestMessage " + s, Toast.LENGTH_LONG) .show();
         CharSequence parChars = insertedHoles.getText();
         int totPar = 0;
         for (int i = 0; i < parChars.length(); i++)
