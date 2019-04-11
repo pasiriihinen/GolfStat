@@ -279,7 +279,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="@string/fairway"
+        android:text="FW"
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_NumPutts" />
@@ -296,32 +296,36 @@
         app:layout_constraintStart_toEndOf="@+id/text_Fairway"
         app:layout_constraintTop_toTopOf="@+id/text_Fairway">
 
-        <ToggleButton
-            android:id="@+id/toggleButton_FW_Hit"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:id="@+id/radioGroupFW"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minWidth="@dimen/toggleButtonMinWidth"
-            android:text=""
-            android:textOff="@string/yes"
-            android:textOn="@string/yes" />
+            android:orientation="horizontal">
 
-        <ToggleButton
-            android:id="@+id/toggleButton_FW_MissLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="@dimen/toggleButtonMinWidth"
-            android:text=""
-            android:textOff="@string/miss_left"
-            android:textOn="@string/miss_left" />
+            <RadioButton
+                android:id="@+id/radiobutton_FW_Hit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="checkFW"
+                android:text="Hit"
+                android:textSize="20sp" />
 
-        <ToggleButton
-            android:id="@+id/toggleButton_FW_MissRight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="@dimen/toggleButtonMinWidth"
-            android:text=""
-            android:textOff="@string/miss_right"
-            android:textOn="@string/miss_right" />
+            <RadioButton
+                android:id="@+id/radiobutton_FW_MissLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="checkFW"
+                android:text="Miss L"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/radiobutton_FW_MissRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="checkFW"
+                android:text="Miss R"
+                android:textSize="20sp" />
+        </RadioGroup>
 
 
     </LinearLayout>
@@ -348,7 +352,7 @@
         android:textOn="@string/yes"
         app:layout_constraintBottom_toBottomOf="@+id/textView_Chip"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/linearLayoutFW"
+        app:layout_constraintStart_toStartOf="@+id/toggleButton_Penalty"
         app:layout_constraintTop_toTopOf="@+id/textView_Chip" />
 
     <TextView
@@ -366,13 +370,14 @@
         android:id="@+id/toggleButton_Penalty"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/togglebutton"
         android:textOff="@string/no"
         android:textOn="@string/yes"
         app:layout_constraintBottom_toBottomOf="@+id/textView_Penalty"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/toggleButton_Chip"
+        app:layout_constraintStart_toEndOf="@+id/textView_Penalty"
         app:layout_constraintTop_toTopOf="@+id/textView_Penalty" />
 
     <Button

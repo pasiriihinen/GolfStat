@@ -15,16 +15,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_PAR = "PAR";
     //Rounds table
     public static final String ROUNDS_TABLE = "rounds_table";
-    public static final String ROUND_ID = "id";
+    public static final String ROUND_ID = "ID";
     public static final String ROUND_DATE = "DATE";
     public static final String ROUND_COURSE = "COURSE";
-    public static final String ROUND_HOLENUM = "HOLE_NUM";
-    public static final String ROUND_HOLEPAR = "HOLE_PAR";
-    public static final String ROUND_HOLESCORE   = "HOLE_SCORE";
-    public static final String ROUND_HOLEPUTTS = "HOLE_PUTTS";
-    public static final String ROUND_HOLENFW = "HOLE_FW";
-    public static final String ROUND_HOLECHIP = "HOLE_CHIP";
-    public static final String ROUND_HOLEPENALTY = "HOLE_PENALTY";
+    public static final String ROUND_HOLENUM = "HOLENUM";
+    public static final String ROUND_HOLEPAR = "HOLEPAR";
+    public static final String ROUND_HOLESCORE   = "HOLESCORE";
+    public static final String ROUND_HOLEPUTTS = "HOLEPUTTS";
+    public static final String ROUND_HOLEFW = "HOLEFW";
+    public static final String ROUND_HOLECHIP = "HOLECHIP";
+    public static final String ROUND_HOLEPENALTY = "HOLEPENALTY";
 
 
     public DatabaseHelper(Context context) {
@@ -36,7 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME +" (_id INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, PAR INTEGER)");
         //Create rounds table
-        db.execSQL("create table " + ROUNDS_TABLE + "(id INTEGER, DATE TEXT, COURSE TEXT, HOLENUM INTEGER, HOLEPAR INTEGER, HOLESCORE INTEGER, HOLEPUTTS INTEGER, HOLEFW TEXT, HOLECHIP TEXT, HOLEPENALTY TEXT)");
+        db.execSQL("create table " + ROUNDS_TABLE + "(id INTEGER PRIMARY KEY AUTOINCREMENT, DATE TEXT, COURSE TEXT, HOLENUM INTEGER, HOLEPAR INTEGER, HOLESCORE INTEGER, HOLEPUTTS INTEGER, HOLEFW TEXT, HOLECHIP TEXT, HOLEPENALTY TEXT)");
 
     }
 
@@ -59,15 +59,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Post score, putts, fw, chip and penalty info for one hole
-    public boolean postHoleData(String id, String DATE, String COURSE, String HOLE_NUM, String HOLE_PAR, String HOLE_SCORE) {
+    public boolean postHoleData(String DATE, String COURSE, String HOLENUM, String HOLEPAR, String HOLESCORE, String HOLEPUTTS, String HOLEFW, String HOLECHIP, String HOLEPENALTY) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(ROUND_ID, id);
+        //contentValues.put(ROUND_ID, id);
         contentValues.put(ROUND_DATE, DATE);
         contentValues.put(ROUND_COURSE, COURSE);
-        contentValues.put(ROUND_HOLENUM, HOLE_NUM);
-        contentValues.put(ROUND_HOLEPAR, HOLE_PAR);
-        contentValues.put(ROUND_HOLESCORE, HOLE_SCORE);
+        contentValues.put(ROUND_HOLENUM, HOLENUM);
+        contentValues.put(ROUND_HOLEPAR, HOLEPAR);
+        contentValues.put(ROUND_HOLESCORE, HOLESCORE);
+        contentValues.put(ROUND_HOLEPUTTS, HOLEPUTTS);
+        contentValues.put(ROUND_HOLEFW, HOLEFW);
+        contentValues.put(ROUND_HOLECHIP, HOLECHIP);
+        contentValues.put(ROUND_HOLEPENALTY, HOLEPENALTY);
         long result = db.insert(ROUNDS_TABLE, null, contentValues);
         if(result == -1)
             return false;
@@ -79,6 +83,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor result = db.rawQuery("select * from "+TABLE_NAME, null);
         return result;
+    }
+
+    public Cursor getLastRoundId() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor resultLastRoundId = db.rawQuery("select max(id) from "+ROUNDS_TABLE, null);
+        return resultLastRoundId;
     }
 
 
