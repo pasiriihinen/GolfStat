@@ -96,8 +96,13 @@ public class AddRoundActivity extends AppCompatActivity {
         this.toggleButtonPenalty.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                holePenaltyString = "Yes";
-                Toast.makeText(AddRoundActivity.this, "Penalty = Yes", Toast.LENGTH_SHORT).show();
+                if (isChecked == true) {
+                    holePenaltyString = "Yes";
+                    Toast.makeText(AddRoundActivity.this, "Penalty = Yes", Toast.LENGTH_SHORT).show();
+                } else {
+                    holePenaltyString = "No";
+                    Toast.makeText(AddRoundActivity.this, "Penalty = No", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
