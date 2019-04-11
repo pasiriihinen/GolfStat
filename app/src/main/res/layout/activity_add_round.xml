@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/holepar"
+        android:text="Holepar: "
         app:layout_constraintBottom_toBottomOf="@+id/TextView_selectedCourse"
         app:layout_constraintEnd_toStartOf="@+id/textView_AddRoundHoleParDigit"
         app:layout_constraintTop_toTopOf="parent" />
